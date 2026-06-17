@@ -685,7 +685,7 @@ export default function Investimentos() {
                 width={80}
               />
               <Tooltip
-                formatter={(value: number) => [formatCurrency(value), 'Rendimento']}
+                formatter={(value) => [formatCurrency(value as number), 'Rendimento']}
                 contentStyle={{
                   borderRadius: 8,
                   border: '1px solid rgba(255,255,255,0.45)',

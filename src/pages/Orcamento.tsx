@@ -271,7 +271,7 @@ export default function Orcamento() {
   // ── Export ─────────────────────────────────────────────────────────────────
 
   function exportExcel() {
-    const data = rows.map((r) => ({
+    const data: { Categoria: string; Orçado: number; Realizado: number; Diferença: number; 'Percentual (%)': string }[] = rows.map((r) => ({
       Categoria: r.categoria,
       Orçado: r.orcado,
       Realizado: r.realizado,

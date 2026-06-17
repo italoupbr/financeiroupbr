@@ -54,7 +54,7 @@ function ChartSkeleton({ height = 260 }: { height?: number }) {
   return (
     <div className="liquid-glass-md rounded-3xl p-5 space-y-3">
       <Skeleton className="h-4 w-40" />
-      <Skeleton style={{ height }} />
+      <div style={{ height }}><Skeleton className="h-full" /></div>
     </div>
   )
 }

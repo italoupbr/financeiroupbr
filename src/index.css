@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-crystal-blue: #0873F7;
+  --color-crystal-glow: #3A90FA;
+  --color-ink-slate: #273544;
+  --color-muted-slate: #626F7F;
+  --color-signal-red: #EF4343;
+  --color-app-bg: #F2F6FA;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+
+  /* Legacy aliases for gradual migration */
+  --color-primary: #0873F7;
+  --color-primary-dark: #3A90FA;
+  --color-surface: rgba(255,255,255,0.72);
+  --color-border: rgba(255,255,255,0.6);
+  --color-sidebar: rgba(255,255,255,0.82);
+  --color-content: #273544;
+  --color-muted: #626F7F;
+  --color-danger: #EF4343;
+
+  --font-display: 'Plus Jakarta Sans', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --radius-card: 24px;
+  --radius-button: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, #F2F6FA 0%, #ECEFF4 100%);
+  background-attachment: fixed;
+  color: #273544;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ─── Liquid Glass Surfaces ─────────────────────── */
+
+.liquid-glass-sm {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 2px 8px rgba(64,91,122,0.07), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.liquid-glass-md {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 4px 16px rgba(64,91,122,0.08), inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.liquid-glass-lg {
+  background: rgba(255,255,255,0.84);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 6px 0 28px rgba(64,91,122,0.07), inset -1px 0 0 rgba(255,255,255,0.65);
+}
+
+.liquid-glass-header {
+  background: rgba(255,255,255,0.80);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 1px 12px rgba(64,91,122,0.06);
+}
+
+/* ─── Crystal Blue Primary Button ─────────────── */
+
+.glass-button {
+  background: linear-gradient(135deg, #0873F7 0%, #3A90FA 100%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 16px rgba(8,115,247,0.25), inset 0 1px 0 rgba(255,255,255,0.3);
+  color: #ffffff;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.glass-button:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(8,115,247,0.38), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.glass-button:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(8,115,247,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* ─── Legacy .card override ─────────────────────── */
+
+.card {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 24px;
+  box-shadow: 0 4px 16px rgba(64,91,122,0.08), inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+/* ─── Entrance Animation ─────────────────────────── */
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeSlideUp 0.22s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in { animation: none; }
+  .glass-button { transition: none; }
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(98,111,127,0.22); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(98,111,127,0.42); }
